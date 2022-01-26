@@ -1,5 +1,6 @@
 import series from "../series.js";
 import Component from "./Component.js";
+import RatingComponent from "./RatingComponent.js";
 import SerieComponent from "./SerieComponent.js";
 
 class PageComponent extends Component {
@@ -49,6 +50,10 @@ class PageComponent extends Component {
       } else {
         const serieCard = new SerieComponent(list, "serie", "li", serie);
       }
+    });
+    const scoreList = document.querySelectorAll(".score");
+    scoreList.forEach((score) => {
+      const rating = new RatingComponent(score, "score");
     });
   }
 }

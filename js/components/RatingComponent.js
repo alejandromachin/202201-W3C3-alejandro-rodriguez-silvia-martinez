@@ -24,3 +24,5 @@ class RatingComponent extends Component {
                   </li>`;
   }
 }
+
+export default RatingComponent;
