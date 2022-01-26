@@ -7,7 +7,7 @@ class PageComponent extends Component {
   }
 
   generateHTML() {
-    this.element.innerHTML = ` <div class="container">
+    this.element.innerHTML = `
       <header class="main-header">
         <h1 class="main-title">My Series</h1>
       </header>
@@ -86,6 +86,8 @@ class PageComponent extends Component {
           </section>
         </section>
       </main>
-    </div>`;
+    `;
   }
 }
+
+export default PageComponent;
