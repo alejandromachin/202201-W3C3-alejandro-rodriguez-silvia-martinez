@@ -1,6 +1,6 @@
-import Component from "./Component";
+import Component from "./Component.js";
 
-class Button extends Component {
+class ButtonComponent extends Component {
   element;
   constructor(parentElement, className, actionOnClick) {
     super(parentElement, className, "i");
@@ -11,4 +11,4 @@ class Button extends Component {
   }
 }
 
-export default Button;
+export default ButtonComponent;

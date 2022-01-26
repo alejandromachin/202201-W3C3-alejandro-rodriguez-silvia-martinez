@@ -1,4 +1,5 @@
 import series from "../series.js";
+import ButtonComponent from "./ButtonComponent.js";
 import Component from "./Component.js";
 import SerieComponent from "./SerieComponent.js";
 
@@ -50,6 +51,13 @@ class PageComponent extends Component {
         const serieCard = new SerieComponent(list, "serie", "li", serie);
       }
     });
+
+    const serieLi = document.querySelector(".serie");
+
+    const button = new ButtonComponent(
+      serieLi,
+      "fas fa-times-circle icon--delete"
+    );
   }
 }
 

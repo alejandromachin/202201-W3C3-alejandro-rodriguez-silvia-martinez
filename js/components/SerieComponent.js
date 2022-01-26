@@ -34,8 +34,7 @@ class SerieComponent extends Component {
                   <li class="score__star">
                     <i class="icon--score fas fa-star" title="5/5"></i>
                   </li>
-                </ul>
-                <i class="fas fa-times-circle icon--delete"></i>`;
+                </ul>`;
   }
 }
 export default SerieComponent;
