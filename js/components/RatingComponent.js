@@ -1,9 +1,17 @@
 import Component from "./Component.js";
 
 class RatingComponent extends Component {
-  constructor(parentElement, className) {
+  actionOnClick;
+
+  constructor(parentElement, className, actionOnClick) {
     super(parentElement, className, "ul");
     this.generateHTML();
+    this.actionOnClick = actionOnClick;
+    this.addListeners();
+  }
+
+  addListeners() {
+    this.element.addEventListener("click", this.actionOnClick);
   }
 
   generateHTML() {

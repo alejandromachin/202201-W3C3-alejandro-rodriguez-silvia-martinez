@@ -53,7 +53,9 @@ class PageComponent extends Component {
     });
     const scoreList = document.querySelectorAll(".score");
     scoreList.forEach((score) => {
-      const rating = new RatingComponent(score, "score");
+      const rating = new RatingComponent(score, "score", () => {
+        this.element.watched = true;
+      });
     });
   }
 }
