@@ -1,3 +1,4 @@
+import series from "../series.js";
 import Component from "./Component.js";
 import SerieComponent from "./SerieComponent.js";
 
@@ -62,7 +63,9 @@ class PageComponent extends Component {
       </main>
     `;
     const list = document.querySelector(".series-list");
-    new SerieComponent(list, "serie", "li");
+    series.forEach((serie) => {
+      const serieCard = new SerieComponent(list, "serie", "li", serie);
+    });
   }
 }
 

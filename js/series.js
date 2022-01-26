@@ -47,9 +47,12 @@ const series = [
     name: "Atypical",
     creator: "Robia Rashid",
     year: 2017,
-    poster: "https://www.cine.com/media/series/2711.jpg",
+    poster:
+      "https://spoilertime.com/wp-content/uploads/2018/08/atypical-poster.jpg",
     watched: false,
     score: 0,
     emmies: 0,
   },
 ];
+
+export default series;
