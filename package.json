@@ -1,7 +1,6 @@
 {
   "name": "challenge_3",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -31,5 +30,14 @@
     "eslint-plugin-import": "^2.25.4",
     "husky": "^7.0.0",
     "jest": "^27.4.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejandromachin/202201-W3C3-alejandro-rodriguez-silvia-martinez.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alejandromachin/202201-W3C3-alejandro-rodriguez-silvia-martinez/issues"
+  },
+  "homepage": "https://github.com/alejandromachin/202201-W3C3-alejandro-rodriguez-silvia-martinez#readme",
+  "description": ""
 }
