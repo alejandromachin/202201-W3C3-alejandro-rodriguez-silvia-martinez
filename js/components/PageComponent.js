@@ -4,7 +4,8 @@ import Component from "./Component.js";
 import SerieComponent from "./SerieComponent.js";
 
 class PageComponent extends Component {
-  constructor(parentElement, className) {
+  series = this.series;
+  constructor(parentElement, className, serie) {
     super(parentElement, "page");
     this.generateHTML();
   }
@@ -41,9 +42,17 @@ class PageComponent extends Component {
         </section>
       </main>
     `;
+
+    this.renderSeries();
+
+    this.renderButton();
+  }
+
+  renderSeries() {
     const list = document.querySelector(".series-list");
     const listwatched = document.querySelector(".series-list--watched");
-
+    list.innerHTML = "";
+    listwatched.innerHTML = "";
     series.forEach((serie) => {
       if (serie.watched) {
         const serieCard = new SerieComponent(listwatched, "serie", "li", serie);
@@ -51,14 +60,24 @@ class PageComponent extends Component {
         const serieCard = new SerieComponent(list, "serie", "li", serie);
       }
     });
+  }
 
-    const serieLi = document.querySelector(".serie");
+  renderButton() {
+    console.log(series);
+    const serieList = document.querySelectorAll(".serie");
+    serieList.forEach((serieList) => {
+      const button = new ButtonComponent(
+        serieList,
+        "fas fa-times-circle icon--delete",
+        () => this.deleteSerie()
+      );
+    });
+  }
 
-    const button = new ButtonComponent(
-      serieLi,
-      "fas fa-times-circle icon--delete"
-    );
+  deleteSerie() {
+    series.splice(0, 1);
+
+    this.renderSeries();
   }
 }
-
 export default PageComponent;
