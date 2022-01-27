@@ -53,11 +53,17 @@ class PageComponent extends Component {
   renderSeries() {
     const list = document.querySelector(".series-list");
     const listwatched = document.querySelector(".series-list--watched");
+    const serieList = document.querySelectorAll(".serie");
     list.innerHTML = "";
     listwatched.innerHTML = "";
     series.forEach((serie) => {
       if (serie.watched) {
         const serieCard = new SerieComponent(listwatched, "serie", "li", serie);
+        const button = new ButtonComponent(
+          serieList,
+          "fas fa-times-circle icon--delete",
+          () => this.deleteSerie()
+        );
       } else {
         const serieCard = new SerieComponent(list, "serie", "li", serie);
       }
@@ -76,15 +82,19 @@ class PageComponent extends Component {
       const button = new ButtonComponent(
         serieList,
         "fas fa-times-circle icon--delete",
-        () => this.deleteSerie()
+        () => {
+          idToDelete = this.element.id;
+        }
       );
     });
   }
 
-  deleteSerie() {
-    series.splice(0, 1);
+  deleteSerie(series) {
+    const prueba = series.find((serie) => this.serie.id === idToDelete);
+    console.log(prueba);
+    // series.splice(series.id, 1);
 
-    this.renderSeries();
+    // this.renderSeries();
   }
 }
 export default PageComponent;
