@@ -22,7 +22,6 @@ class SerieComponent extends Component {
                 <ul class="score">
                 </ul>
                 <i class="fas fa-times-circle icon--delete"></i>`;
-
   }
 }
 export default SerieComponent;
