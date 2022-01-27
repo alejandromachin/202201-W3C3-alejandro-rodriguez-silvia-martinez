@@ -70,7 +70,6 @@ class PageComponent extends Component {
   }
 
   renderButton() {
-    console.log(series);
     const serieList = document.querySelectorAll(".serie");
     serieList.forEach((serieList) => {
       const button = new ButtonComponent(
