@@ -6,8 +6,9 @@ import RatingComponent from "./RatingComponent.js";
 import SerieComponent from "./SerieComponent.js";
 
 class PageComponent extends Component {
-  series = this.series;
-  constructor(parentElement, className, serie) {
+  serieComponents = [];
+
+  constructor(parentElement) {
     super(parentElement, "page");
     this.generateHTML();
   }
@@ -58,14 +59,13 @@ class PageComponent extends Component {
     listwatched.innerHTML = "";
     series.forEach((serie) => {
       if (serie.watched) {
-        const serieCard = new SerieComponent(listwatched, "serie", "li", serie);
-        const button = new ButtonComponent(
-          serieList,
-          "fas fa-times-circle icon--delete",
-          () => this.deleteSerie()
+        this.serieComponents.push(
+          new SerieComponent(listwatched, "serie", "li", serie)
         );
       } else {
-        const serieCard = new SerieComponent(list, "serie", "li", serie);
+        this.serieComponents.push(
+          new SerieComponent(list, "serie", "li", serie)
+        );
       }
     });
     const scoreList = document.querySelectorAll(".score");
@@ -77,24 +77,25 @@ class PageComponent extends Component {
   }
 
   renderButton() {
-    const serieList = document.querySelectorAll(".serie");
-    serieList.forEach((serieList) => {
+    this.serieComponents.forEach((serieComponent) => {
       const button = new ButtonComponent(
-        serieList,
+        serieComponent.element,
         "fas fa-times-circle icon--delete",
-        () => {
-          idToDelete = this.element.id;
-        }
+        () => this.deleteSerie(serieComponent.serie.id)
       );
     });
   }
 
-  deleteSerie(series) {
-    const prueba = series.find((serie) => this.serie.id === idToDelete);
-    console.log(prueba);
-    // series.splice(series.id, 1);
+  deleteSerie(id) {
+    const index = series.findIndex((serie) => {
+      if (serie.id === id) {
+        return true;
+      }
+      return false;
+    });
+    series.splice(index, 1);
 
-    // this.renderSeries();
+    this.generateHTML();
   }
 }
 export default PageComponent;
